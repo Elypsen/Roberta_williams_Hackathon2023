@@ -29,4 +29,11 @@ export const getFestivalByDpt = async(dpt:string) => {
     }
 }
 
-
+export const getOneFestival = async(recordid:string) => {
+    try{
+        const festival: Festival = await local.get(recordid).json();
+        return festival
+    }catch(err){
+        throw getErrorMessage(err);
+    }
+}
