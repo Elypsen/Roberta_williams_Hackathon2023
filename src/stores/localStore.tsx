@@ -42,7 +42,7 @@ export type Festival = {
 // router.get('/dpt', getFestivalByDpt) => body = "dpt": string
 //
 
-class FestivalFactory {
+export class FestivalFactory {
    private readonly _fields: Fields
    private readonly _recordid: string
    private readonly _datasetid: string
