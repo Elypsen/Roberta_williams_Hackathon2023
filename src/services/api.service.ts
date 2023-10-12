@@ -21,9 +21,13 @@ export const getAllFestivals = async() => {
 }
 
 export const getFestivalByDpt = async(dpt:string) => {
+    const NUMBER_OF_RESULTS = 50;
     try{
-        const festivals:Festival[] = await local.post('dpt', {json:{value: dpt}}).json();
-        return festivals;
+        const festivals:Festival[] = await local.post('dpt', {json:{dpt: dpt}}).json();
+        const sliced = festivals.slice(0, NUMBER_OF_RESULTS);
+        // Return all data and splice in UI => pagination
+        console.log(sliced.length, festivals.length)
+        return festivals.slice(0, NUMBER_OF_RESULTS);
     }catch(err){
         throw getErrorMessage(err);
     }
