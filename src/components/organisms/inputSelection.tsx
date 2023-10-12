@@ -1,8 +1,8 @@
 import {Fragment, useMemo, useState} from 'react'
 import {Combobox, Transition} from '@headlessui/react'
 import {CheckIcon, ChevronUpDownIcon} from '@heroicons/react/20/solid'
-import {Departement, departements} from '../collections/departements'
-import removeAccents from '../helpers/removeAccents'
+import {Departement, departements} from '../../collections/departements'
+import removeAccents from '../../helpers/removeAccents'
 
 
 export type ValidDepartement = Pick<Departement, 'nomDepartement' | 'codeDepartement'> & {displayValue: string}
@@ -20,17 +20,6 @@ const validDepartements: ValidDepartement[] = [{
 export default function InputSelection() {
    const [selected, setSelected] = useState<ValidDepartement>(validDepartements[0])
    const [query, setQuery] = useState('')
-
-   // const filteredDepartements =
-   //    query === ''
-   //       ? validDepartements
-   //       : validDepartements.filter((dep) =>
-   //          dep.nomDepartement
-   //             .toLowerCase()
-   //             .replace(/\s+/g, '')
-   //             .includes(query.toLowerCase().replace(/\s+/g, '')) && dep,
-   //       )
-   //
 
    const search = useMemo(() => {
       const filteredDepartements =

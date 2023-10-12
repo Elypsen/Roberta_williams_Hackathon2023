@@ -1,6 +1,6 @@
 import {Suspense} from 'react'
-import Skeleton from './skeleton'
 import {motion} from 'framer-motion'
+import Skeleton from '../atoms/skeleton'
 
 export default function HeroBanner() {
    return <motion.section

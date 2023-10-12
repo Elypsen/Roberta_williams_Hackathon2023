@@ -4,9 +4,10 @@ import {
    Route,
    RouterProvider,
 } from 'react-router-dom';
-import {MainLayout} from './components/main-layout.tsx';
-import HomePage from './pages/home.page.tsx';
+
 import {ROUTES} from './routes.constants.ts';
+import { MainLayout } from './components/pages/main-layout.tsx';
+import HomePage from './components/pages/home.page.tsx';
 
 /**
  * App point of the application
