@@ -2,6 +2,7 @@ import {createBrowserRouter, createRoutesFromElements, Link, Navigate, Route, Ro
 import {ROUTES} from './routes.constants.ts'
 import {MainLayout} from './components/pages/main-layout.tsx'
 import HomePage from './components/pages/home.page.tsx'
+import CreatPage from './components/pages/creatFestival.tsx'
 import FestivalPage from './components/pages/festivalPage.tsx'
 
 
@@ -22,6 +23,15 @@ const router = createBrowserRouter(
          <Route
             index
             element={<HomePage />}
+         />
+     
+         <Route
+            path={'/login/'}
+            element={<CreatPage/>}
+         />
+         <Route
+            path={'/creat/'}
+            element={<CreatPage/>}
          />
 
          <Route
