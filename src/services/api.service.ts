@@ -33,6 +33,14 @@ export const getFestivalByDpt = async (dpt: string) => {
    }
 }
 
+export const getFestivalByName = async(nom:string) =>{
+    try{
+        const festivals = await local.post('nom', {json:{nom: nom}}).json();
+        return festivals
+    }catch(err){
+        throw getErrorMessage(err)
+    }
+}
 export const getOneFestival = async (recordid: string) => {
    try {
       const festival: Festival[] = await local.get(recordid).json()
