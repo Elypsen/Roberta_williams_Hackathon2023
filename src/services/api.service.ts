@@ -1,6 +1,6 @@
 import ky from 'ky'
 
-import {Festival} from '../stores/localStore'
+import {Festival} from '../stores/useStore.tsx'
 
 const getErrorMessage = (error: unknown) => {
    if (error instanceof Error) return error.message
@@ -11,7 +11,7 @@ const local = ky.create({
    prefixUrl: 'http://localhost:8000/',
 })
 
-export const getAllFestivals = async () => {
+export const getSampleFestivals = async () => {
    try {
       const festivals: Festival[] = await local.get('').json()
       return festivals
@@ -56,7 +56,7 @@ export const updateFestival = async(festival:Festival, token:string, recordid:st
         const updatedFestival: Festival = await local.put(recordid,{json:{festival:festival}, headers:{'Authorization': `Bearer ${token}`
     }}).json();
 
-        return updatedFestival; 
+        return updatedFestival;
     }catch(err){
         throw getErrorMessage(err)
     }

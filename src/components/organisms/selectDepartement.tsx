@@ -3,8 +3,8 @@ import {Combobox, Transition} from '@headlessui/react'
 import {CheckIcon, ChevronUpDownIcon} from '@heroicons/react/20/solid'
 import {Departement, departements} from '../../collections/departements'
 import removeAccents from '../../helpers/removeAccents'
-import {getFestivalByDpt} from '../../services/api.service'
-import {LocalStore} from '../../stores/localStore'
+import {getFestivalByDpt, getSampleFestivals} from '../../services/api.service'
+import {useStore} from '../../stores/useStore.tsx'
 
 
 export type ValidDepartement = Pick<Departement, 'nomDepartement' | 'codeDepartement'> & {displayValue: string}
@@ -21,14 +21,14 @@ const validDepartements: ValidDepartement[] = [{
 }) satisfies ValidDepartement[]]
 
 export default function SelectDepartement() {
-   const setFestivals = LocalStore(store => store.setFestivals)
+   const {setFestivalsByDpt, setFestivals} = useStore(store => store)
 
-   const [selectedDepartement, setSelectedDepartement] = useState<ValidDepartement>(validDepartements[0])
+   const [selectedDepartment, setSelectedDepartment] = useState<ValidDepartement>(validDepartements[0])
 
    const [query, setQuery] = useState('')
 
    const search = useMemo(() => {
-      const filteredDepartements =
+      const filteredDepartments =
          query === ''
             ? validDepartements
             : validDepartements.filter((dep) =>
@@ -37,23 +37,34 @@ export default function SelectDepartement() {
                   .replace(/\s+/g, '')
                   .includes(query.toLowerCase().replace(/\s+/g, '')) && dep,
             )
-      // console.log(filteredDepartements)
-      return filteredDepartements
+      // console.log(filteredDepartments)
+      return filteredDepartments
 
    }, [query])
 
    async function handleHttpRequest(dpt: string) {
-      return getFestivalByDpt(selectedDepartement.nomDepartement)
+      return getFestivalByDpt(selectedDepartment.nomDepartement)
          .then((result) => result)
          .catch(err => console.error('DPT ERORR RESP', err))
    }
 
    useEffect(() => {
-      if (selectedDepartement.codeDepartement === '00') return
+      if (selectedDepartment.codeDepartement === '00') {
+         getSampleFestivals().then((data) => {
+            setFestivalsByDpt(null)
+            setFestivals(data)
+         }).catch(error => console.error(error))
 
-      handleHttpRequest(selectedDepartement.nomDepartement).then(resp =>
-         resp && setFestivals(resp))
-   }, [selectedDepartement])
+      } else {
+         getFestivalByDpt(selectedDepartment.nomDepartement)
+            .then((result) => {
+               result && setFestivalsByDpt(result)
+                setFestivals(null)
+            })
+            .catch(err => console.error('DPT ERORR RESP', err))
+
+      }
+   }, [selectedDepartment])
 
    function updateQuery(event) {
       setQuery(removeAccents(event.target.value.toLowerCase().replace(' ', '-')))
@@ -63,8 +74,8 @@ export default function SelectDepartement() {
    return (
       <div className={'w-full max-w-[250px] z-50 '}>
          <Combobox
-            value={selectedDepartement}
-            onChange={setSelectedDepartement}
+            value={selectedDepartment}
+            onChange={setSelectedDepartment}
          >
             <div className='relative form-control'>
                <label className='label'>

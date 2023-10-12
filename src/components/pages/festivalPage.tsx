@@ -1,7 +1,7 @@
 import {Suspense, useEffect, useRef, useState} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import {getOneFestival} from '../../services/api.service'
-import {Festival} from '../../stores/localStore'
+import {Festival} from '../../stores/useStore.tsx'
 import Skeleton from '../atoms/skeleton.tsx'
 
 export default function FestivalPage() {
