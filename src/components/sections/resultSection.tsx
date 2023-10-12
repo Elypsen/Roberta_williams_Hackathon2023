@@ -1,4 +1,4 @@
-import InputSelection from '../organisms/inputSelection'
+import SelectDepartement from '../organisms/selectDepartement'
 import {Festival, LocalStore} from '../../stores/localStore'
 import {useEffect, useState} from 'react'
 import {getAllFestivals} from '../../services/api.service'
@@ -18,8 +18,9 @@ export default function ResultSection() {
    return <section id={'results'} className={'w-full flex flex-col items-center min-h-screen min-h-48'}>
 
       <div className={'w-full bg-base-200 justify-center flex flex-wrap gap-2 items-center '}>
-         <InputSelection />
-         <SearchName /></div>
+         <SelectDepartement />
+         <SearchName />
+      </div>
       <h2
          className={'my-8 uppercase tetx-xl font-bold'}>{store.festivals.length > 0 ? store.festivals.length > 1 ? `RESULTATS : ${store.festivals.length}` : 'RESULTAT : ' : 'Pas de résultats trouvés'}</h2>
       {
@@ -37,7 +38,7 @@ export default function ResultSection() {
 function SearchName() {
    return <div className='relative form-control w-full max-w-xs border'>
       <label className='label'>
-         <span className='label-text'>What is your name?</span>
+         <span className='label-text'>Comment s'appelle le festival</span>
       </label>
       <input type='text' autoComplete={'none'} placeholder='Type here'
              className='input input-bordered w-full max-w-xs' />
