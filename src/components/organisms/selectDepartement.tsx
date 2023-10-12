@@ -17,7 +17,7 @@ const validDepartements: ValidDepartement[] = [{
       displayValue: `${dep.codeDepartement} - ${dep.nomDepartement}`,
    }
 }) satisfies ValidDepartement[]]
-export default function InputSelection() {
+export default function SelectDepartement() {
    const [selected, setSelected] = useState<ValidDepartement>(validDepartements[0])
    const [query, setQuery] = useState('')
 
@@ -31,7 +31,7 @@ export default function InputSelection() {
                   .replace(/\s+/g, '')
                   .includes(query.toLowerCase().replace(/\s+/g, '')) && dep,
             )
-      console.log(filteredDepartements)
+      // console.log(filteredDepartements)
       return filteredDepartements
 
    }, [query])
@@ -42,7 +42,7 @@ export default function InputSelection() {
          <Combobox value={selected} onChange={setSelected}>
             <div className='relative form-control'>
                <label className='label'>
-                  <span className='label-text'>What is your name?</span>
+                  <span className='label-text'>Sélectionner un d&eacute;partement</span>
                </label>
                <div
                   className='relative w-full cursor-default overflow-hidden rounded-lg bg- text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
@@ -70,7 +70,7 @@ export default function InputSelection() {
                   afterLeave={() => setQuery('')}
                >
                   <Combobox.Options
-                     className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+                     className='absolute mt-1 max-h-60 w-full overflow-auto mt-20 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
                      {!search || search.length === 0 && query !== '' ? (
                         <div className='relative cursor-default select-none py-2 px-4 text-gray-700'>
                            Nothing found.
