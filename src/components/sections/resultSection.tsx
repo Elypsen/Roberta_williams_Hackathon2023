@@ -1,7 +1,7 @@
 import SelectDepartement from '../organisms/selectDepartement'
 import {Festival, useStore} from '../../stores/useStore.tsx'
 import {useEffect, useState} from 'react'
-import {getSampleFestivals} from '../../services/api.service'
+import {getFestivalByName, getSampleFestivals} from '../../services/api.service'
 import {Link} from 'react-router-dom'
 
 export default function ResultSection() {
@@ -18,6 +18,7 @@ export default function ResultSection() {
       // If there are festivals in the store we don't need to fetch them again
       else if (store.festivals && store.festivals.length > 0) return
 
+      else if (store.festivalsByName && store.festivalsByName.length > 0) return
       // If there are no festivals in the store we fetch them
       else {
          getSampleFestivals().then((data) => {
@@ -31,10 +32,12 @@ export default function ResultSection() {
    useEffect(() => {
       if (store.festivalsByDpt && store.festivalsByDpt.length > 0) {
          setUseFestivals(store.festivalsByDpt)
+      } else if (store.festivalsByName && store.festivalsByName.length > 0) {
+         setUseFestivals(store.festivalsByName)
       } else if (store.festivals && store.festivals.length > 0) {
          setUseFestivals(store.festivals)
       }
-   }, [store.festivalsByDpt, store.festivals])
+   }, [store.festivalsByDpt, store.festivals, store.festivalsByName])
 
    if (!useFestivals) {
       return <div id='results'
@@ -66,11 +69,43 @@ export default function ResultSection() {
 
 
 function SearchName() {
+   const {
+      festivals,
+      festivalsByDpt,
+      setFestivals,
+      setFestivalsByDpt,
+      setFestivalsByName,
+      festivalsByName,
+   } = useStore(state => state)
+   const [userInput, setUserInput] = useState('')
+   useEffect(() => {
+      if (userInput.length > 2) {
+
+         if (festivalsByDpt && festivalsByDpt.length > 0) {
+            const updatedFestivalsByDpt = festivalsByDpt.filter(festival => festival.fields.nom_du_festival.toLowerCase().includes(userInput.toLowerCase()))
+            setFestivalsByDpt(updatedFestivalsByDpt)
+         } else {
+            getFestivalByName(userInput).then((res) => {
+               setFestivalsByDpt(null)
+               setFestivals(null)
+               setFestivalsByName(res)
+               console.log(res)
+            }).catch(err => console.error(err))
+         }
+      } else {
+         const sample = getSampleFestivals().then((res) => {
+            setFestivals(res)
+            setFestivalsByDpt(null)
+            setFestivalsByName(null)
+         }).catch(err => console.error(err))
+      }
+   }, [userInput])
+
    return <div className='relative form-control w-full max-w-xs border'>
       <label className='label'>
          <span className='label-text'>Comment s'appelle le festival</span>
       </label>
-      <input type='text' autoComplete={'none'} placeholder='Type here'
+      <input type='text' autoComplete={'none'} placeholder='Type here' onChange={(e) => setUserInput(e.target.value)}
              className='input input-bordered w-full max-w-xs' />
       <label className='label'>
          <span className='label-text-alt'>{' '}</span>

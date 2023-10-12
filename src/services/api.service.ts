@@ -35,7 +35,7 @@ export const getFestivalByDpt = async (dpt: string) => {
 
 export const getFestivalByName = async(nom:string) =>{
     try{
-        const festivals = await local.post('nom', {json:{nom: nom}}).json();
+        const festivals:Awaited<Festival[] > = await local.post('nom', {json:{nom: nom}}).json();
         return festivals
     }catch(err){
         throw getErrorMessage(err)
