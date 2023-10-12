@@ -3,7 +3,7 @@ import {create} from 'zustand'
 export type Fields = {
    envergure_territoriale?: string;
    code_insee_commune: string;
-   // geocodage_xy: [number, number];
+   geocodage_xy: [number, number];
    complement_d_adresse_facultatif?: string;
    type_de_voie_rue_avenue_boulevard_etc?: string;
    annee_de_creation_du_festival?: string;
