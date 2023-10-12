@@ -1,5 +1,5 @@
 import {ComponentPropsWithoutRef} from 'react'
-import {cn} from '../utils'
+import {cn} from '../../utils'
 
 export default function Skeleton({className, children}: ComponentPropsWithoutRef<'div'>) {
    return (<div

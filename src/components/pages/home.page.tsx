@@ -1,8 +1,8 @@
-import HeroBanner from '../components/heroBanner'
-import ResultSection from '../components/resultSection'
+import HeroBanner from "../sections/heroBanner";
+import ResultSection from "../sections/resultSection";
+
 
 export default function HomePage() {
-
 
    return (
       <main className={'min-h-screen w-screen '}>

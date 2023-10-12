@@ -1,0 +1,314 @@
+{
+   "data": [
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "9a6bee4accd8c2dc917dfdb17ba16820efb012f5",
+         "fields": {
+            "envergure_territoriale": "D\u00e9partementale",
+            "code_insee_commune": "13001",
+            "geocodage_xy": [43.5360708378, 5.39857444582],
+            "complement_d_adresse_facultatif": "Patio du bois de l'aune",
+            "type_de_voie_rue_avenue_boulevard_etc": "Place",
+            "annee_de_creation_du_festival": "2006",
+            "periode_principale_de_deroulement_du_festival": "Apr\u00e8s-saison (6 septembre - 31 d\u00e9cembre)",
+            "discipline_dominante": "Arts visuels, arts num\u00e9riques",
+            "nom_du_festival": "Gamerz",
+            "libelle_epci_collage_en_valeur": "M\u00e9tropole d'Aix-Marseille-Provence",
+            "commune_principale_de_deroulement": "Aix-en-Provence",
+            "region_principale_de_deroulement": "Provence-Alpes-C\u00f4te d'Azur",
+            "code_insee_epci_collage_en_valeur": "200054807",
+            "adresse_postale": "1 Place Victor schoelcher",
+            "departement_principal_de_deroulement": "Bouches-du-Rh\u00f4ne",
+            "numero_de_voie": "1",
+            "identifiant": "FEST_13001_49",
+            "code_postal_de_la_commune_principale_de_deroulement": "13090",
+            "site_internet_du_festival": "http://www.lab-gamerz.com/site/",
+            "adresse_e_mail": "contact@lab-gamerz.com",
+            "nom_de_la_voie": "Victor schoelcher",
+            "decennie_de_creation_du_festival": "De 2000 \u00e0 2009",
+            "sous_categorie_arts_visuels_et_arts_numeriques": "Arts num\u00e9riques"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [5.39857444582, 43.5360708378]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "2fdfad7eeb525992adee9cae839722461a658728",
+         "fields": {
+            "code_insee_commune": "2A004",
+            "geocodage_xy": [41.9347926638, 8.70132275974],
+            "complement_d_adresse_facultatif": "Cath\u00e9drale d'Ajaccio",
+            "type_de_voie_rue_avenue_boulevard_etc": "Rue",
+            "annee_de_creation_du_festival": "2016",
+            "periode_principale_de_deroulement_du_festival": "Apr\u00e8s-saison (6 septembre - 31 d\u00e9cembre)",
+            "discipline_dominante": "Musique",
+            "nom_du_festival": "Corsiclassic - festival de musique de chambre",
+            "libelle_epci_collage_en_valeur": "CA du Pays Ajaccien",
+            "commune_principale_de_deroulement": "Ajaccio",
+            "region_principale_de_deroulement": "Corse",
+            "sous_categorie_musique": "Musique classique",
+            "code_insee_epci_collage_en_valeur": "242010056",
+            "adresse_postale": "Rue Forcioli conti",
+            "departement_principal_de_deroulement": "Corse-du-Sud",
+            "identifiant": "FEST_2A004_85",
+            "code_postal_de_la_commune_principale_de_deroulement": "20000",
+            "site_internet_du_festival": "helloasso.com/associations/corsiclassic",
+            "adresse_e_mail": "Corsiclassic@gmail.com ou bartoli.jeanne@wanadoo.fr",
+            "nom_de_la_voie": "Forcioli conti",
+            "decennie_de_creation_du_festival": "2010 et apr\u00e8s"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [8.70132275974, 41.9347926638]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "d362191d4eac3e7513fc929300308de2b1446315",
+         "fields": {
+            "code_insee_commune": "2A004",
+            "geocodage_xy": [41.9347926638, 8.70132275974],
+            "type_de_voie_rue_avenue_boulevard_etc": "Rue",
+            "annee_de_creation_du_festival": "2009",
+            "periode_principale_de_deroulement_du_festival": "Avant-saison (1er janvier - 20 juin)",
+            "discipline_dominante": "Livre, litt\u00e9rature",
+            "nom_du_festival": "Racines de ciel",
+            "libelle_epci_collage_en_valeur": "CA du Pays Ajaccien",
+            "commune_principale_de_deroulement": "Ajaccio",
+            "region_principale_de_deroulement": "Corse",
+            "code_insee_epci_collage_en_valeur": "242010056",
+            "adresse_postale": "50-52 Rue Du cardinal Fesch",
+            "departement_principal_de_deroulement": "Corse-du-Sud",
+            "numero_de_voie": "50-52",
+            "identifiant": "FEST_2A004_96",
+            "code_postal_de_la_commune_principale_de_deroulement": "20000",
+            "site_internet_du_festival": "https://www.facebook.com/RacinesDeCielAjaccio/",
+            "sous_categorie_livre_et_litterature": "Fiction (roman, th\u00e9\u00e2tre, etc.), Non-fiction (documentaire, autobiographie, essai, r\u00e9cit, etc.), Po\u00e9sie, polar, science-fiction",
+            "adresse_e_mail": "Viagrenelle@gmail.com",
+            "nom_de_la_voie": "Du cardinal Fesch",
+            "decennie_de_creation_du_festival": "De 2000 \u00e0 2009"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [8.70132275974, 41.9347926638]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "38ba7936cf62c94345c1170e8eace291f925c393",
+         "fields": {
+            "envergure_territoriale": "Intercommunale",
+            "code_insee_commune": "73011",
+            "geocodage_xy": [45.6683987277, 6.40460338643],
+            "complement_d_adresse_facultatif": "Le Grand Bivouac d'Albertville",
+            "type_de_voie_rue_avenue_boulevard_etc": "Rue",
+            "annee_de_creation_du_festival": "2002",
+            "periode_principale_de_deroulement_du_festival": "Apr\u00e8s-saison (6 septembre - 31 d\u00e9cembre)",
+            "discipline_dominante": "Cin\u00e9ma, audiovisuel",
+            "nom_du_festival": "Le grand bivouac",
+            "libelle_epci_collage_en_valeur": "CA Arlys\u00e8re",
+            "commune_principale_de_deroulement": "Albertville",
+            "region_principale_de_deroulement": "Auvergne-Rh\u00f4ne-Alpes",
+            "sous_categorie_cinema_et_audiovisuel": "Films documentaires courts et moyens m\u00e9trages",
+            "code_insee_epci_collage_en_valeur": "200068997",
+            "adresse_postale": "88 bis Rue de la R\u00e9publique",
+            "departement_principal_de_deroulement": "Savoie",
+            "numero_de_voie": "88 bis",
+            "identifiant": "FEST_73011_104",
+            "code_postal_de_la_commune_principale_de_deroulement": "73200",
+            "site_internet_du_festival": "https://www.grandbivouac.com/fr",
+            "adresse_e_mail": "communication@grandbivouac.org",
+            "nom_de_la_voie": "de la R\u00e9publique",
+            "decennie_de_creation_du_festival": "De 2000 \u00e0 2009"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [6.40460338643, 45.6683987277]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "754854bc0d4070f16dcc84f53039a25b7919b61d",
+         "fields": {
+            "code_insee_commune": "81004",
+            "geocodage_xy": [43.9258213622, 2.14686328555],
+            "complement_d_adresse_facultatif": "Ecoles Des Mines D'albi - Campus Jarlard",
+            "type_de_voie_rue_avenue_boulevard_etc": "All\u00e9e",
+            "periode_principale_de_deroulement_du_festival": "Avant-saison (1er janvier - 20 juin)",
+            "discipline_dominante": "Spectacle vivant",
+            "nom_du_festival": "Festival Acthea",
+            "libelle_epci_collage_en_valeur": "CA de l'Albigeois (C2A)",
+            "commune_principale_de_deroulement": "Albi",
+            "region_principale_de_deroulement": "Occitanie",
+            "sous_categorie_spectacle_vivant": "Th\u00e9\u00e2tre",
+            "code_insee_epci_collage_en_valeur": "248100737",
+            "adresse_postale": "All\u00e9e Des Sciences",
+            "departement_principal_de_deroulement": "Tarn",
+            "identifiant": "FEST_81004_113",
+            "code_postal_de_la_commune_principale_de_deroulement": "81000",
+            "site_internet_du_festival": "https://www.mines-albi.fr/acthea-17e-edition-du-festival-europeen-de-theatre-etudiant",
+            "nom_de_la_voie": "Des Sciences"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [2.14686328555, 43.9258213622]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "fb0dd29d8e873da57d2abf9650173312bd9f6857",
+         "fields": {
+            "envergure_territoriale": "Intercommunale",
+            "code_insee_commune": "07007",
+            "geocodage_xy": [44.9397584607, 4.73413213329],
+            "complement_d_adresse_facultatif": "Domaine le trouilllet",
+            "annee_de_creation_du_festival": "2014",
+            "periode_principale_de_deroulement_du_festival": "Apr\u00e8s-saison (6 septembre - 31 d\u00e9cembre)",
+            "discipline_dominante": "Arts visuels, arts num\u00e9riques",
+            "nom_du_festival": "Illustr'action",
+            "libelle_epci_collage_en_valeur": "CC Rh\u00f4ne Crussol",
+            "commune_principale_de_deroulement": "Alboussi\u00e8re",
+            "region_principale_de_deroulement": "Auvergne-Rh\u00f4ne-Alpes",
+            "code_insee_epci_collage_en_valeur": "200041366",
+            "departement_principal_de_deroulement": "Ard\u00e8che",
+            "identifiant": "FEST_07007_122",
+            "code_postal_de_la_commune_principale_de_deroulement": "07440",
+            "site_internet_du_festival": "https://www.letrouillet.com/event/festival-illustraction/",
+            "decennie_de_creation_du_festival": "2010 et apr\u00e8s"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [4.73413213329, 44.9397584607]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "d033cd6119adfdbce10242aa48c0ee888514ed99",
+         "fields": {
+            "envergure_territoriale": "D\u00e9partementale",
+            "code_insee_commune": "61001",
+            "geocodage_xy": [48.4318193082, 0.0915406916107],
+            "type_de_voie_rue_avenue_boulevard_etc": "rue",
+            "annee_de_creation_du_festival": "1983",
+            "periode_principale_de_deroulement_du_festival": "Saison (21 juin - 5 septembre)",
+            "discipline_dominante": "Musique",
+            "nom_du_festival": "Septembre musical de l'Orne",
+            "libelle_epci_collage_en_valeur": "CU d'Alen\u00e7on",
+            "commune_principale_de_deroulement": "Alen\u00e7on",
+            "region_principale_de_deroulement": "Normandie",
+            "sous_categorie_musique": "Musique classique",
+            "sous_categorie_musique_cnm": "11- Musique classique, lyrique, contemporaine, autres",
+            "code_insee_epci_collage_en_valeur": "246100663",
+            "adresse_postale": "54 rue Saint Blaise",
+            "departement_principal_de_deroulement": "Orne",
+            "numero_de_voie": "54",
+            "identifiant": "FEST_61001_131",
+            "code_postal_de_la_commune_principale_de_deroulement": "61000",
+            "site_internet_du_festival": "www.septembre-musical.com",
+            "adresse_e_mail": "info@septembre-musical.com",
+            "nom_de_la_voie": "Saint Blaise",
+            "decennie_de_creation_du_festival": "De 1980 \u00e0 1989"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [0.0915406916107, 48.4318193082]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "35b7e2f0deb96bc966731b038bb069fa6de7ecec",
+         "fields": {
+            "envergure_territoriale": "Intercommunale",
+            "code_insee_commune": "30007",
+            "geocodage_xy": [44.1250099126, 4.08828501262],
+            "complement_d_adresse_facultatif": "Espace Andr\u00e9 Chamson",
+            "type_de_voie_rue_avenue_boulevard_etc": "Boulevard",
+            "annee_de_creation_du_festival": "1998",
+            "periode_principale_de_deroulement_du_festival": "Apr\u00e8s-saison (6 septembre - 31 d\u00e9cembre)",
+            "discipline_dominante": "Spectacle vivant",
+            "nom_du_festival": "Les Atypiques",
+            "libelle_epci_collage_en_valeur": "CA Al\u00e8s Agglom\u00e9ration",
+            "commune_principale_de_deroulement": "Al\u00e8s",
+            "region_principale_de_deroulement": "Occitanie",
+            "sous_categorie_spectacle_vivant": "Th\u00e9\u00e2tre",
+            "code_insee_epci_collage_en_valeur": "200066918",
+            "adresse_postale": "2 Boulevard Louis Blanc",
+            "departement_principal_de_deroulement": "Gard",
+            "numero_de_voie": "2",
+            "identifiant": "FEST_30007_138",
+            "code_postal_de_la_commune_principale_de_deroulement": "30100",
+            "site_internet_du_festival": "https://atpales.fr/",
+            "adresse_e_mail": "ja.fabre3@orange.fr",
+            "nom_de_la_voie": "Louis Blanc",
+            "decennie_de_creation_du_festival": "De 1990 \u00e0 1999"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [4.08828501262, 44.1250099126]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "c4c954b372a8087535e4d181701696531f577b0d",
+         "fields": {
+            "code_insee_commune": "57012",
+            "geocodage_xy": [49.3644069158, 6.04829438392],
+            "identifiant_cnm": "0",
+            "periode_principale_de_deroulement_du_festival": "Avant-saison (1er janvier - 20 juin)",
+            "discipline_dominante": "Musique",
+            "nom_du_festival": "Algrange Music Live",
+            "libelle_epci_collage_en_valeur": "CA du Val de Fensch",
+            "commune_principale_de_deroulement": "Algrange",
+            "region_principale_de_deroulement": "Grand Est",
+            "sous_categorie_musique_cnm": "07- Musiques actuelles sans distinction",
+            "code_insee_epci_collage_en_valeur": "245701222",
+            "departement_principal_de_deroulement": "Moselle",
+            "identifiant": "FEST_57012_145",
+            "code_postal_de_la_commune_principale_de_deroulement": "57440",
+            "adresse_e_mail": "elisalec@hotmail.com",
+            "decennie_de_creation_du_festival": "De 2000 \u00e0 2009"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [6.04829438392, 49.3644069158]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      },
+      {
+         "datasetid": "festivals-global-festivals-_-pl",
+         "recordid": "6bc780376f1d1745bbd7a930b78eb5bf004ab432",
+         "fields": {
+            "code_insee_commune": "37003",
+            "geocodage_xy": [47.3917237652, 1.00023994675],
+            "annee_de_creation_du_festival": "1996",
+            "periode_principale_de_deroulement_du_festival": "Avant-saison (1er janvier - 20 juin)",
+            "discipline_dominante": "Musique",
+            "nom_du_festival": "Brass Band",
+            "libelle_epci_collage_en_valeur": "CC du Val d'Amboise",
+            "commune_principale_de_deroulement": "Amboise",
+            "region_principale_de_deroulement": "Centre-Val de Loire",
+            "code_insee_epci_collage_en_valeur": "200043065",
+            "departement_principal_de_deroulement": "Indre-et-Loire",
+            "identifiant": "FEST_37003_175",
+            "code_postal_de_la_commune_principale_de_deroulement": "37400",
+            "site_internet_du_festival": "https://openamboise.com/",
+            "decennie_de_creation_du_festival": "De 1990 \u00e0 1999"
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [1.00023994675, 47.3917237652]
+         },
+         "record_timestamp": "2023-01-18T11:44:37.015+01:00"
+      }
+   ]
+}
