@@ -1,7 +1,7 @@
 export const ROUTES = {
    index: '/',
-   // auth: '/auth',
-   // api: {
+   auth: '/auth',
+   api: {
    //    // auth
    //    login: 'http://localhost:8000/login',
    //    signup: 'http://localhost:8000/signup',
@@ -12,7 +12,7 @@ export const ROUTES = {
    //    displayList: 'http://localhost:8000/displayList',
    //    displayListComplited: 'http://localhost:8000/displayListComplited',
    //    updateCompleted: 'http://localhost:8000/updateCompleted',
-   // }
+   }
 }
 //router.get("/users", getUsers);
 // router.use(authenticateToken);

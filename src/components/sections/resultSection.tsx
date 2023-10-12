@@ -2,6 +2,7 @@ import SelectDepartement from '../organisms/selectDepartement'
 import {Festival, LocalStore} from '../../stores/localStore'
 import {useEffect, useState} from 'react'
 import {getAllFestivals} from '../../services/api.service'
+import {Link} from 'react-router-dom'
 
 export default function ResultSection() {
    const store = LocalStore(state => state)
@@ -58,7 +59,7 @@ function Card({festival}: {festival: Festival}) {
          <h2 className='card-title'>{festival.fields.nom_du_festival}</h2>
          <p className={'h-min'}>{festival.fields.periode_principale_de_deroulement_du_festival}</p>
          <div className='card-actions'>
-            <button className='btn btn-primary'>Plus d'informations</button>
+            <Link to={`/festival/${festival.recordid}`} className='btn btn-primary'>Plus d'informations</Link>
          </div>
       </div>
    </li>

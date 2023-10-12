@@ -35,8 +35,9 @@ export const getFestivalByDpt = async(dpt:string) => {
 
 export const getOneFestival = async(recordid:string) => {
     try{
-        const festival: Festival = await local.get(recordid).json();
-        return festival
+        const festival: Festival[] = await local.get(recordid).json();
+        console.log('FROM SERVICE', festival)
+        return festival[0]
     }catch(err){
         throw getErrorMessage(err);
     }

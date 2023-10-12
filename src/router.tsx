@@ -2,6 +2,7 @@ import {createBrowserRouter, createRoutesFromElements, Link, Navigate, Route, Ro
 import {ROUTES} from './routes.constants.ts'
 import {MainLayout} from './components/pages/main-layout.tsx'
 import HomePage from './components/pages/home.page.tsx'
+import FestivalPage from './components/pages/festivalPage.tsx'
 
 
 /**
@@ -22,6 +23,12 @@ const router = createBrowserRouter(
             index
             element={<HomePage />}
          />
+
+         <Route
+            path={'/festival/:id'}
+            element={<FestivalPage />}
+         />
+
          <Route
             path={'/page-not-found'}
             element={<NotFound />}
@@ -36,3 +43,4 @@ function NotFound() {
       <Link className={'btn btn-primary'} to={'/'}>Retour à l&apos;accueil</Link>
    </div>
 }
+
