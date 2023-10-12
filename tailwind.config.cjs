@@ -54,6 +54,7 @@ module.exports = {
             width: {
                 128: '32rem',
                 144: '36rem',
+                256: '64rem',
                 ...defaultTheme.width,
             },
             height: {

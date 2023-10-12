@@ -1,5 +1,5 @@
 import InputSelection from '../organisms/inputSelection'
-import {LocalStore} from '../../stores/localStore'
+import {Festival, LocalStore} from '../../stores/localStore'
 import {useEffect} from 'react'
 import {TUNNEL} from '../../TUNNEL'
 
@@ -13,15 +13,16 @@ export default function ResultSection() {
          store.setFestivals(data)
       })
    }, [])
-   return <section id={'results'} className={'w-full flex flex-col items-center h-screen min-h-48'}>
+   return <section id={'results'} className={'w-full flex flex-col items-center min-h-screen min-h-48'}>
 
-      <div className={'w-full flex flex-wrap gap-2 items-center '}>
+      <div className={'w-full bg-base-200 justify-center flex flex-wrap gap-2 items-center '}>
          <InputSelection />
          <SearchName /></div>
-      <h2>RESULTATS</h2>
+      <h2>RESULTATS : {store.festivals.length}</h2>
 
-      <ul>{store.festivals.map((festival) => {
-         return (<li key={festival.recordid}>{festival.recordid}</li>)
+      <ul className={'flex flex-wrap gap-4 mt-4 justify-center'}>{store.festivals.map((festival) => {
+         return (/*<li key={festival.recordid}>{festival.recordid}</li>*/
+            <Card festival={festival} />)
       })}</ul>
 
    </section>
@@ -33,9 +34,25 @@ function SearchName() {
       <label className='label'>
          <span className='label-text'>What is your name?</span>
       </label>
-      <input type='text' placeholder='Type here' className='input input-bordered w-full max-w-xs' />
+      <input type='text' autoComplete={'none'} placeholder='Type here' className='input input-bordered w-full max-w-xs' />
       <label className='label'>
-         <span className='label-text-alt'>Some message feedback to user...</span>
+         <span className='label-text-alt'>{' '}</span>
       </label>
    </div>
+}
+
+function Card({festival}: {festival: Festival}) {
+   return <li
+      className='card w-full sm:w-128 md:w-96 xl:w-256 bg-base-100 shadow-xl border-base-300 hover:scale-105 transition '>
+      <figure className='mx-2 mt-2 h-48 overflow-hidden rounded-xl'>
+         <img className={'object-cover w-full h-full object-center'} src='/confet-sd.jpg' alt='Shoes' />
+      </figure>
+      <div className='card-body items-center text-center'>
+         <h2 className='card-title'>{festival.fields.nom_du_festival}</h2>
+         <p className={'h-min'}>{festival.fields.periode_principale_de_deroulement_du_festival}</p>
+         <div className='card-actions'>
+            <button className='btn btn-primary'>Plus d'informations</button>
+         </div>
+      </div>
+   </li>
 }

@@ -8,6 +8,7 @@ export default function HomePage() {
    useEffect(() => {
       getAllFestivals().then((result) => console.log("useeffect:", result) ).catch(err=> console.log(err)); 
    })
+
    return (
       <main className={'min-h-screen w-screen '}>
          {/*HERO*/}
