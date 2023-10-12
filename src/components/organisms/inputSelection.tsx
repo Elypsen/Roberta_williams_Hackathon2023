@@ -31,7 +31,7 @@ export default function InputSelection() {
                   .replace(/\s+/g, '')
                   .includes(query.toLowerCase().replace(/\s+/g, '')) && dep,
             )
-      console.log(filteredDepartements)
+      // console.log(filteredDepartements)
       return filteredDepartements
 
    }, [query])
