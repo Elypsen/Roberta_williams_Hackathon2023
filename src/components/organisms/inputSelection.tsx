@@ -38,14 +38,17 @@ export default function InputSelection() {
 
 
    return (
-      <div>
+      <div className={'w-full max-w-[250px] z-50 '}>
          <Combobox value={selected} onChange={setSelected}>
-            <div className='relative mt-1'>
+            <div className='relative form-control'>
+               <label className='label'>
+                  <span className='label-text'>What is your name?</span>
+               </label>
                <div
-                  className='relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
+                  className='relative w-full cursor-default overflow-hidden rounded-lg bg- text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
                   <Combobox.Input
-                     className='w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0'
-                     displayValue={(dep: ValidDepartement) => dep.codeDepartement === '00' ? '' : dep.nomDepartement}
+                     className='w-full input border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0'
+                     displayValue={(dep: ValidDepartement) => dep.codeDepartement === '00' ? '' : dep.displayValue}
                      onChange={(event) => setQuery(removeAccents(event.target.value.toLowerCase().replace(' ', '-')))}
                      placeholder='Rechercher un département'
                   />
@@ -56,6 +59,9 @@ export default function InputSelection() {
                      />
                   </Combobox.Button>
                </div>
+               <label className='label'>
+                  <span className='label-text-alt'>{' '}</span>
+               </label>
                <Transition
                   as={Fragment}
                   leave='transition ease-in duration-100'
@@ -87,7 +93,7 @@ export default function InputSelection() {
                               selected ? 'font-medium' : 'font-normal'
                            }`}
                         >
-                          {dep.displayValue}
+                          {dep.displayValue === '' ? 'Tous les départements' : dep.displayValue}
                         </span>
                                     {selected ? (
                                        <span
