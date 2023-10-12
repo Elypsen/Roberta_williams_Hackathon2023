@@ -73,12 +73,16 @@ export type Festival = {
 
 type LocalStoreTypes = {
    // getters
-   festivals: any[]
+   festivals: Festival[] | null
+   festivalsByDpt: Festival[] | null
 
    // setters
-   setFestivals: (festivals: Festival[]) => void
+   setFestivals: (festivals: Festival[] | null) => void
+   setFestivalsByDpt: (festivals: Festival[] | null) => void
 }
-export const LocalStore = create<LocalStoreTypes>(set => ({
-   festivals: [],
+export const useStore = create<LocalStoreTypes>(set => ({
+   festivals: null,
+   festivalsByDpt: null,
    setFestivals: (festivals) => set({festivals}),
+   setFestivalsByDpt: (festivals) => set({festivalsByDpt: festivals}),
 }))
