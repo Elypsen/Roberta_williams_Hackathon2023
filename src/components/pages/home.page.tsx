@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import HeroBanner from "../sections/heroBanner";
 import ResultSection from "../sections/resultSection";
-import { getAllFestivals } from "../../services/api.service";
+import {  getFestivalByDpt } from "../../services/api.service";
 
 
 export default function HomePage() {
    useEffect(() => {
-      getAllFestivals().then((result) => console.log("useeffect:", result) ).catch(err=> console.log(err)); 
-   })
+      getFestivalByDpt("Hérault").then((result) => console.log("useeffect:", result) ).catch(err=> console.log("useEffect",err)); 
+   },[])
 
    return (
       <main className={'min-h-screen w-screen '}>
