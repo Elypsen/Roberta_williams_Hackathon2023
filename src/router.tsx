@@ -1,4 +1,4 @@
-import {createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter, createRoutesFromElements, Link, Navigate, Route, RouterProvider} from 'react-router-dom'
 import {ROUTES} from './routes.constants.ts'
 import {MainLayout} from './components/pages/main-layout.tsx'
 import HomePage from './components/pages/home.page.tsx'
@@ -31,5 +31,8 @@ const router = createBrowserRouter(
 )
 
 function NotFound() {
-   return <div>Page not found</div>
+   return <div className={'w-screen h-96 flex flex-col justify-center items-center gap-8'}>
+      <div>Page not found</div>
+      <Link className={'btn btn-primary'} to={'/'}>Retour à l&apos;accueil</Link>
+   </div>
 }

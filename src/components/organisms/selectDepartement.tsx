@@ -1,8 +1,10 @@
-import {Fragment, useMemo, useState} from 'react'
+import {Fragment, useEffect, useMemo, useState} from 'react'
 import {Combobox, Transition} from '@headlessui/react'
 import {CheckIcon, ChevronUpDownIcon} from '@heroicons/react/20/solid'
 import {Departement, departements} from '../../collections/departements'
 import removeAccents from '../../helpers/removeAccents'
+import {getFestivalByDpt} from '../../services/api.service'
+import {LocalStore} from '../../stores/localStore'
 
 
 export type ValidDepartement = Pick<Departement, 'nomDepartement' | 'codeDepartement'> & {displayValue: string}
@@ -17,8 +19,12 @@ const validDepartements: ValidDepartement[] = [{
       displayValue: `${dep.codeDepartement} - ${dep.nomDepartement}`,
    }
 }) satisfies ValidDepartement[]]
+
 export default function SelectDepartement() {
-   const [selected, setSelected] = useState<ValidDepartement>(validDepartements[0])
+   const setFestivals = LocalStore(store => store.setFestivals)
+
+   const [selectedDepartement, setSelectedDepartement] = useState<ValidDepartement>(validDepartements[0])
+
    const [query, setQuery] = useState('')
 
    const search = useMemo(() => {
@@ -36,10 +42,30 @@ export default function SelectDepartement() {
 
    }, [query])
 
+   async function handleHttpRequest(dpt: string) {
+      return getFestivalByDpt(selectedDepartement.nomDepartement)
+         .then((result) => result)
+         .catch(err => console.error('DPT ERORR RESP', err))
+   }
+
+   useEffect(() => {
+      if (selectedDepartement.codeDepartement === '00') return
+
+      handleHttpRequest(selectedDepartement.nomDepartement).then(resp =>
+         resp && setFestivals(resp))
+   }, [selectedDepartement])
+
+   function updateQuery(event) {
+      setQuery(removeAccents(event.target.value.toLowerCase().replace(' ', '-')))
+   }
+
 
    return (
       <div className={'w-full max-w-[250px] z-50 '}>
-         <Combobox value={selected} onChange={setSelected}>
+         <Combobox
+            value={selectedDepartement}
+            onChange={setSelectedDepartement}
+         >
             <div className='relative form-control'>
                <label className='label'>
                   <span className='label-text'>Sélectionner un d&eacute;partement</span>
@@ -49,7 +75,7 @@ export default function SelectDepartement() {
                   <Combobox.Input
                      className='w-full input border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0'
                      displayValue={(dep: ValidDepartement) => dep.codeDepartement === '00' ? '' : dep.displayValue}
-                     onChange={(event) => setQuery(removeAccents(event.target.value.toLowerCase().replace(' ', '-')))}
+                     onChange={updateQuery}
                      placeholder='Rechercher un département'
                   />
                   <Combobox.Button className='absolute inset-y-0 right-0 flex items-center pr-2'>
