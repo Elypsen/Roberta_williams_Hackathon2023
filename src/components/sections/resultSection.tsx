@@ -1,20 +1,49 @@
 import SelectDepartement from '../organisms/selectDepartement'
-import {Festival, LocalStore} from '../../stores/localStore'
+import {Festival, useStore} from '../../stores/useStore.tsx'
 import {useEffect, useState} from 'react'
-import {getAllFestivals} from '../../services/api.service'
+import {getSampleFestivals} from '../../services/api.service'
 import {Link} from 'react-router-dom'
 
 export default function ResultSection() {
-   const store = LocalStore(state => state)
+   const store = useStore(state => state)
    // console.log(store)
    const [errorMessage, setErrorMessage] = useState<null | string>(null)
+
+   const [useFestivals, setUseFestivals] = useState<Festival[] | null>(null)
+
    useEffect(() => {
-      getAllFestivals().then((data) => {
-         if (data) {
-            store.setFestivals(data)
-         }
-      }).catch(error => setErrorMessage(error.message))
+      // If there are departments in the store we don't need to fetch them again
+      if (store.festivalsByDpt && store.festivalsByDpt.length > 0) return
+
+      // If there are festivals in the store we don't need to fetch them again
+      else if (store.festivals && store.festivals.length > 0) return
+
+      // If there are no festivals in the store we fetch them
+      else {
+         getSampleFestivals().then((data) => {
+            if (data) {
+               store.setFestivals(data)
+            }
+         }).catch(error => setErrorMessage(error.message))
+      }
    }, [])
+
+   useEffect(() => {
+      if (store.festivalsByDpt && store.festivalsByDpt.length > 0) {
+         setUseFestivals(store.festivalsByDpt)
+      } else if (store.festivals && store.festivals.length > 0) {
+         setUseFestivals(store.festivals)
+      }
+   }, [store.festivalsByDpt, store.festivals])
+
+   if (!useFestivals) {
+      return <div id='results'
+                  className={'flex flex-wrap gap-4 mt-4 justify-center'}>
+         {Array.from({length: 30}, (_, i) => i).map(i => <div key={i}
+                                                              className='w-full aspect-square sm:w-128 md:w-96 shadow-xl bg-gray-400 animate-pulse rounded-xl' />)}
+
+      </div>
+   }
 
    return <section id={'results'} className={'w-full flex flex-col items-center min-h-screen min-h-48'}>
 
@@ -23,10 +52,10 @@ export default function ResultSection() {
          <SearchName />
       </div>
       <h2
-         className={'my-8 uppercase tetx-xl font-bold'}>{store.festivals.length > 0 ? store.festivals.length > 1 ? `RESULTATS : ${store.festivals.length}` : 'RESULTAT : ' : 'Pas de résultats trouvés'}</h2>
+         className={'my-8 uppercase tetx-xl font-bold'}>{useFestivals.length > 0 ? useFestivals.length > 1 ? `RESULTATS : ${useFestivals.length}` : 'RESULTAT : ' : 'Pas de résultats trouvés'}</h2>
       {
          errorMessage ? <p>{errorMessage}</p> :
-            <ul className={'flex flex-wrap gap-4 mt-4 justify-center'}>{store.festivals.map((festival) => {
+            <ul className={'flex flex-wrap gap-4 mt-4 justify-center'}>{useFestivals.map((festival) => {
                return (/*<li key={festival.recordid}>{festival.recordid}</li>*/
                   <Card festival={festival} />)
             })}</ul>
