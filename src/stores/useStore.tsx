@@ -75,14 +75,19 @@ type LocalStoreTypes = {
    // getters
    festivals: Festival[] | null
    festivalsByDpt: Festival[] | null
+   festivalsByName: Festival[] | null
 
    // setters
    setFestivals: (festivals: Festival[] | null) => void
    setFestivalsByDpt: (festivals: Festival[] | null) => void
+   setFestivalsByName: (festivals: Festival[] | null) => void
 }
 export const useStore = create<LocalStoreTypes>(set => ({
    festivals: null,
    festivalsByDpt: null,
+   festivalsByName: null,
+
    setFestivals: (festivals) => set({festivals}),
    setFestivalsByDpt: (festivals) => set({festivalsByDpt: festivals}),
+   setFestivalsByName: (festivals) => set({festivalsByName: festivals}),
 }))

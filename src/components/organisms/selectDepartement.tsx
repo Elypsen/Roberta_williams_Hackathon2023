@@ -21,7 +21,7 @@ const validDepartements: ValidDepartement[] = [{
 }) satisfies ValidDepartement[]]
 
 export default function SelectDepartement() {
-   const {setFestivalsByDpt, setFestivals} = useStore(store => store)
+   const {setFestivalsByDpt,setFestivalsByName, setFestivals} = useStore(store => store)
 
    const [selectedDepartment, setSelectedDepartment] = useState<ValidDepartement>(validDepartements[0])
 
@@ -52,6 +52,7 @@ export default function SelectDepartement() {
       if (selectedDepartment.codeDepartement === '00') {
          getSampleFestivals().then((data) => {
             setFestivalsByDpt(null)
+            setFestivalsByName(null)
             setFestivals(data)
          }).catch(error => console.error(error))
 
@@ -60,6 +61,7 @@ export default function SelectDepartement() {
             .then((result) => {
                result && setFestivalsByDpt(result)
                 setFestivals(null)
+               setFestivalsByName(null)
             })
             .catch(err => console.error('DPT ERORR RESP', err))
 
@@ -85,9 +87,8 @@ export default function SelectDepartement() {
                   className='relative w-full cursor-default overflow-hidden rounded-lg bg- text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
                   <Combobox.Input
                      className='w-full input border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0'
-                     displayValue={(dep: ValidDepartement) => dep.codeDepartement === '00' ? '' : dep.displayValue}
+                     displayValue={(dep: ValidDepartement) => dep.codeDepartement === '00' ? 'Tous les départements' : dep.displayValue}
                      onChange={updateQuery}
-                     placeholder='Rechercher un département'
                   />
                   <Combobox.Button className='absolute inset-y-0 right-0 flex items-center pr-2'>
                      <ChevronUpDownIcon
