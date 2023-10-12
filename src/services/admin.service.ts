@@ -11,9 +11,9 @@ const local = ky.create({
 })
 
 
-export const login = async({username, password}:{username: string, password: string}) =>{
+export const login = async({username, password}:{username: string, password: string}) => {
    try{
-    const token:string = await local.post('login',{json:{username: username, password: password}}).json();
+    const token: string =  await local.post('login',{json:{username: username, password: password}}).json();
    return token;
    }catch(err){
     throw getErrorMessage(err);
