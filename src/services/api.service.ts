@@ -51,9 +51,9 @@ export const getOneFestival = async (recordid: string) => {
    }
 }
 
-export const updateFestival = async(festival:Festival, token:string, recordid:string) => {
+export const updateFestival = async(festival:Festival, token:string, idMongo:string) => {
     try{
-        const updatedFestival: Festival = await local.put(recordid,{json:{festival:festival}, headers:{'Authorization': `Bearer ${token}`
+        const updatedFestival: Festival = await local.put(idMongo,{json:{festival:festival}, headers:{'Authorization': `Bearer ${token}`
     }}).json();
 
         return updatedFestival;
