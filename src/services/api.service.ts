@@ -33,13 +33,13 @@ export const getFestivalByDpt = async (dpt: string) => {
    }
 }
 
-export const getFestivalByName = async(nom:string) =>{
-    try{
-        const festivals:Awaited<Festival[] > = await local.post('nom', {json:{nom: nom}}).json();
-        return festivals
-    }catch(err){
-        throw getErrorMessage(err)
-    }
+export const getFestivalByName = async (nom: string) => {
+   try {
+      const festivals = await local.post('nom', {json: {nom: nom}}).json()
+      return festivals.festivalName
+   } catch (err) {
+      throw getErrorMessage(err)
+   }
 }
 export const getOneFestival = async (recordid: string) => {
    try {
@@ -51,30 +51,33 @@ export const getOneFestival = async (recordid: string) => {
    }
 }
 
-export const updateFestival = async(festival:Festival, token:string, idMongo:string) => {
-    try{
-        const updatedFestival: Festival = await local.put(idMongo,{json:{festival:festival}, headers:{'Authorization': `Bearer ${token}`
-    }}).json();
+export const updateFestival = async (festival: Festival, token: string, idMongo: string) => {
+   try {
+      const updatedFestival: Festival = await local
+         .put(idMongo, {json: {festival: festival}, headers: {Authorization: `Bearer ${token}`}})
+         .json()
 
-        return updatedFestival;
-    }catch(err){
-        throw getErrorMessage(err)
-    }
+      return updatedFestival
+   } catch (err) {
+      throw getErrorMessage(err)
+   }
 }
 
-export const createFestival = async(festival:Festival, token: string) => {
-    try{
-        const newFestival: Festival = await local.post('',{json:{festival}, headers:{'Authorization': `Bearer ${token}`}}).json()
-        return newFestival;
-    }catch(err){
-        throw getErrorMessage(err)
-    }
+export const createFestival = async (festival: Festival, token: string) => {
+   try {
+      const newFestival: Festival = await local
+         .post('', {json: {festival}, headers: {Authorization: `Bearer ${token}`}})
+         .json()
+      return newFestival
+   } catch (err) {
+      throw getErrorMessage(err)
+   }
 }
 
-export const getCount = async() => {
-   try{
+export const getCount = async () => {
+   try {
       return await local.get('count').json()
-   }catch(err){
+   } catch (err) {
       throw getErrorMessage(err)
    }
 }

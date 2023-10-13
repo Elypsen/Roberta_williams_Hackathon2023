@@ -1,10 +1,17 @@
-import {createBrowserRouter, createRoutesFromElements, Link, Navigate, Route, RouterProvider} from 'react-router-dom'
-import {ROUTES} from './routes.constants.ts'
-import {MainLayout} from './components/pages/main-layout.tsx'
-import HomePage from './components/pages/home.page.tsx'
+import {
+   createBrowserRouter,
+   createRoutesFromElements,
+   Link,
+   Navigate,
+   Route,
+   RouterProvider,
+} from 'react-router-dom'
 import CreatPage from './components/pages/creatFestival.tsx'
 import FestivalPage from './components/pages/festivalPage.tsx'
-
+import HomePage from './components/pages/home.page.tsx'
+import LoginPage from './components/pages/loginPage.tsx'
+import {MainLayout} from './components/pages/main-layout.tsx'
+import {ROUTES} from './routes.constants.ts'
 
 /**
  * App point of the application
@@ -24,14 +31,14 @@ const router = createBrowserRouter(
             index
             element={<HomePage />}
          />
-     
+
          <Route
             path={'/login/'}
-            element={<CreatPage/>}
+            element={<LoginPage />}
          />
          <Route
             path={'/creat/'}
-            element={<CreatPage/>}
+            element={<CreatPage />}
          />
 
          <Route
@@ -43,14 +50,19 @@ const router = createBrowserRouter(
             path={'/page-not-found'}
             element={<NotFound />}
          />
-      </Route>,
-   ),
+      </Route>
+   )
 )
 
 function NotFound() {
-   return <div className={'w-screen h-96 flex flex-col justify-center items-center gap-8'}>
-      <div>Page not found</div>
-      <Link className={'btn btn-primary'} to={'/'}>Retour à l&apos;accueil</Link>
-   </div>
+   return (
+      <div className={'flex h-96 w-screen flex-col items-center justify-center gap-8'}>
+         <div>Page not found</div>
+         <Link
+            className={'btn btn-primary'}
+            to={'/'}>
+            Retour à l&apos;accueil
+         </Link>
+      </div>
+   )
 }
-
