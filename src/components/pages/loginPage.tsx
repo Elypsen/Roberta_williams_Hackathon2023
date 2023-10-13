@@ -1,18 +1,21 @@
  import React, { useState } from 'react'
 // import axios from 'axios'
 import {login} from '../../services/admin.service'
+import { useNavigate } from 'react-router-dom'
 // import { useNavigate, NavLink } from 'react-router-dom'
 
 export default function LoginPage() {
     
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const navigate= useNavigate()
     const handleSubmit = async(event :any) => {
         event.preventDefault();
        await login({ username, password }).then((data) => {
             if (data) {
                console.log(data)
                localStorage.setItem('token', JSON.stringify(data));
+               navigate('/creat')
             }
          }).catch(err => { alert("connexion échouée") })
         }
