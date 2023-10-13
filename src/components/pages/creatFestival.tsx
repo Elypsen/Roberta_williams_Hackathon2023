@@ -21,7 +21,7 @@ export default function CreatPage() {
        await createFestival(festivalData, token).then((data) => {
             if (data) {
                console.log(data)
-               localStorage.setItem('token', JSON.stringify(data));
+               
             }
          }).catch(err => { alert("connexion échouée") })
         }

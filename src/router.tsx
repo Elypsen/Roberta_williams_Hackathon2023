@@ -4,6 +4,8 @@ import {MainLayout} from './components/pages/main-layout.tsx'
 import HomePage from './components/pages/home.page.tsx'
 import CreatPage from './components/pages/creatFestival.tsx'
 import FestivalPage from './components/pages/festivalPage.tsx'
+import UpdatePage from './components/pages/updateFestival.tsx'
+import LoginPage from './components/pages/loginPage.tsx'
 
 
 /**
@@ -27,11 +29,15 @@ const router = createBrowserRouter(
      
          <Route
             path={'/login/'}
-            element={<CreatPage/>}
+            element={<LoginPage/>}
          />
          <Route
             path={'/creat/'}
             element={<CreatPage/>}
+         />
+         <Route
+            path={'/update/:id'}
+            element={<UpdatePage/>}
          />
 
          <Route

@@ -30,6 +30,7 @@ export type Fields = {
 export type Festival = {
    datasetid?: string;
    recordid?: string;
+   _id?:string;
    fields?: Fields
    geometry?: {
       type?: string;
