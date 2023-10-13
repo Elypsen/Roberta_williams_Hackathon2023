@@ -19,7 +19,7 @@ module.exports = {
          },
       },
       extend: {
-         colors:{
+         colors: {
             // ...customColors,
             ...defaultTheme.colors,
          },
@@ -132,8 +132,7 @@ module.exports = {
    },
    // daisyUI config (optional - here are the default values)
    daisyui: {
-      themes: [
-         'lemonade'], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
+      themes: ['lemonade'], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
       darkTheme: true,
       base: true, // applies background color and foreground color for root element by default
       styled: true, // include daisyUI customColors and design decisions for all components
