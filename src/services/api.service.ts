@@ -71,7 +71,6 @@ export const createFestival = async(festival:Festival, token: string) => {
     }
 }
 
-
 export const getCount = async() => {
    try{
       return await local.get('count').json()
