@@ -70,3 +70,12 @@ export const createFestival = async(festival:Festival, token: string) => {
         throw getErrorMessage(err)
     }
 }
+
+
+export const getCount = async() => {
+   try{
+      return await local.get('count').json()
+   }catch(err){
+      throw getErrorMessage(err)
+   }
+}
