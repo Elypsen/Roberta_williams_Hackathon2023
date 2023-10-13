@@ -11,6 +11,7 @@ import FestivalPage from './components/pages/festivalPage.tsx'
 import HomePage from './components/pages/home.page.tsx'
 import LoginPage from './components/pages/loginPage.tsx'
 import {MainLayout} from './components/pages/main-layout.tsx'
+import UpdatePage from './components/pages/UpdateFestival.tsx'
 import {ROUTES} from './routes.constants.ts'
 
 /**
@@ -40,7 +41,10 @@ const router = createBrowserRouter(
             path={'/creat/'}
             element={<CreatPage />}
          />
-
+         <Route
+            path={'/update/:id'}
+            element={<UpdatePage />}
+         />
          <Route
             path={'/festival/:id'}
             element={<FestivalPage />}

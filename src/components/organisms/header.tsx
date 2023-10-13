@@ -1,10 +1,15 @@
 import {motion} from 'framer-motion'
 import {Link} from 'react-router-dom'
+const token = JSON.parse(localStorage.getItem('token') || 'null')
 
 export default function Header() {
    // const isLoggedIn = useAuthStore(state => state.isLoggedIn)
    // const logout = useAuthStore(state => state.logout)
    // const {pathname} = useLocation()
+   const logout = () => {
+      localStorage.removeItem('token')
+      window.location.reload()
+   }
    return (
       <motion.header
          initial={{opacity: 0}}
@@ -15,7 +20,7 @@ export default function Header() {
             initial={{opacity: 0, y: -100}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.5, delay: 0.5}}
-            className="h-full w-full">
+            className="flex h-full w-full items-center justify-between">
             <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
                <Link
                   to={'/'}
@@ -23,6 +28,15 @@ export default function Header() {
                   Mon Festoche
                </Link>
                <nav className="flex items-center lg:order-2"></nav>
+            </div>
+            <div className="card-actions">
+               {token !== null && (
+                  <button
+                     onClick={logout}
+                     className="btn-danger btn">
+                     logout
+                  </button>
+               )}
             </div>
          </motion.nav>
       </motion.header>

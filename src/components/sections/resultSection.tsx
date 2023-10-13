@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {getFestivalByName, getSampleFestivals} from '../../services/api.service'
 import {Festival, useStore} from '../../stores/useStore.tsx'
 import SelectDepartement from '../organisms/selectDepartement'
+
 const token = JSON.parse(localStorage.getItem('token') || 'null') // Utilisation de null comme valeur par défaut si la clé 'token' est absente
 
 export default function ResultSection() {
@@ -130,6 +131,7 @@ function SearchName() {
             <span className="label-text">Rechercher un festival</span>
          </label>
          <input
+            id={'search'}
             type="text"
             autoComplete={'none'}
             placeholder="Type here"
@@ -147,15 +149,24 @@ function Card({festival}: {festival: Festival}) {
    return (
       <li className="card w-full border-base-300 bg-base-100 shadow-xl transition hover:scale-105 sm:w-128 md:w-96 ">
          <figure className="mx-2 mt-2 h-48 overflow-hidden rounded-xl">
-            {/*<div className="card-actions">*/}
-            {/*   {token !== null && (*/}
-            {/*      <Link*/}
-            {/*         to={`/update/${festival.recordid}`}*/}
-            {/*         className="btn-danger btn">*/}
-            {/*         Update*/}
-            {/*      </Link>*/}
-            {/*   )}*/}
-            {/*</div>*/}
+            <div className="card-actions absolute right-3 top-3">
+               {token !== null && (
+                  <Link
+                     to={`/update/${festival.recordid}`}
+                     className="badge aspect-square h-12 w-12 rounded-lg opacity-80  hover:opacity-100 ">
+                     <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                           fill="currentColor"
+                           d="M20.71 7.04c-.34.34-.67.67-.68 1c-.03.32.31.65.63.96c.48.5.95.95.93 1.44c-.02.49-.53 1-1.04 1.5l-4.13 4.14L15 14.66l4.25-4.24l-.96-.96l-1.42 1.41l-3.75-3.75l3.84-3.83c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25l9.56-9.57l3.75 3.75L6.75 21H3v-3.75Z"
+                        />
+                     </svg>
+                  </Link>
+               )}
+            </div>
             <img
                className={'h-full w-full object-cover object-center'}
                src="/confet-sd.jpg"
