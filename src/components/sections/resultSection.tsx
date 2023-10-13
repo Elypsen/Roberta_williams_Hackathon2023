@@ -3,6 +3,7 @@ import {Festival, useStore} from '../../stores/useStore.tsx'
 import {useEffect, useState} from 'react'
 import {getFestivalByName, getSampleFestivals} from '../../services/api.service'
 import {Link} from 'react-router-dom'
+const token = JSON.parse(localStorage.getItem('token') || 'null'); // Utilisation de null comme valeur par défaut si la clé 'token' est absente
 
 export default function ResultSection() {
    const store = useStore(state => state)
@@ -117,6 +118,13 @@ function Card({festival}: {festival: Festival}) {
    return <li
       className='card w-full sm:w-128 md:w-96 bg-base-100 shadow-xl border-base-300 hover:scale-105 transition '>
       <figure className='mx-2 mt-2 h-48 overflow-hidden rounded-xl'>
+      <div className='card-actions'>
+      {token !== null && (
+            <Link to={`/update/${festival.recordid}`} className='btn btn-danger'>
+              Update
+            </Link>
+          )}
+         </div>
          <img className={'object-cover w-full h-full object-center'} src='/confet-sd.jpg' alt='Shoes' />
       </figure>
       <div className='card-body items-center text-center'>

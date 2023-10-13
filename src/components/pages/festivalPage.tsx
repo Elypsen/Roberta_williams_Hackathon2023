@@ -9,6 +9,7 @@ export default function FestivalPage() {
    const [festival, setFestival] = useState<Festival | null>(null)
    useEffect(() => {
       getOneFestival(id).then(res => {
+         console.log(res)
          setFestival(res)
       }).catch(err => console.error(err))
    }, [id])
