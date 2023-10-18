@@ -1,13 +1,15 @@
 import {motion} from 'framer-motion'
-import {Link} from 'react-router-dom'
-const token = JSON.parse(localStorage.getItem('token') || 'null')
+import {Link, useNavigate} from 'react-router-dom'
 
 export default function Header() {
+   const token = JSON.parse(localStorage.getItem('token') || 'null')
    // const isLoggedIn = useAuthStore(state => state.isLoggedIn)
    // const logout = useAuthStore(state => state.logout)
+   const naviagate = useNavigate()
    // const {pathname} = useLocation()
    const logout = () => {
       localStorage.removeItem('token')
+      naviagate('/')
       window.location.reload()
    }
    return (

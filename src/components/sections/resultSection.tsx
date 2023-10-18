@@ -4,7 +4,7 @@ import {getFestivalByName, getSampleFestivals} from '../../services/api.service'
 import {Festival, useStore} from '../../stores/useStore.tsx'
 import SelectDepartement from '../organisms/selectDepartement'
 
-const token = JSON.parse(localStorage.getItem('token') || 'null') // Utilisation de null comme valeur par défaut si la clé 'token' est absente
+// const token = JSON.parse(localStorage.getItem('token') || 'null') // Utilisation de null comme valeur par défaut si la clé 'token' est absente
 
 export default function ResultSection() {
    const store = useStore(state => state)
@@ -146,6 +146,7 @@ function SearchName() {
 }
 
 function Card({festival}: {festival: Festival}) {
+   const token = JSON.parse(localStorage.getItem('token') || 'null') // Utilisation de null comme valeur par défaut si la clé 'token' est absente
    return (
       <li className="card w-full border-base-300 bg-base-100 shadow-xl transition hover:scale-105 sm:w-128 md:w-96 ">
          <figure className="mx-2 mt-2 h-48 overflow-hidden rounded-xl">

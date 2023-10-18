@@ -1,5 +1,6 @@
 import {useState} from 'react'
 // import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 import {createFestival} from '../../services/api.service'
 // import { useNavigate, NavLink } from 'react-router-dom'
 
@@ -20,7 +21,7 @@ export default function CreatPage() {
       },
    }
    const token = JSON.parse(localStorage.getItem('token') || 'null') // Utilisation de null comme valeur par défaut si la clé 'token' est absente
-
+   const navigate = useNavigate()
    const handleSubmit = async (event: any) => {
       event.preventDefault()
       await createFestival(festivalData, token)
@@ -28,6 +29,7 @@ export default function CreatPage() {
             if (data) {
                console.log(data)
                localStorage.setItem('token', JSON.stringify(data))
+               navigate('/')
             }
          })
          .catch(err => {
@@ -110,7 +112,7 @@ export default function CreatPage() {
                />
             </div>
 
-            <button className="btn-light btn mt-3 w-full max-w-xs"> connexion</button>
+            <button className="btn-light btn mt-3 w-full max-w-xs">Ajouter</button>
          </form>
          {/* <h6 className='' > Vous avez déjà un compte  &nbsp;
                     <NavLink className="text-white" to="/login" exact={true}>Cliquez ici</NavLink>

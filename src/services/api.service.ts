@@ -63,7 +63,7 @@ export const updateFestival = async (festival: Festival, token: string, idMongo:
    }
 }
 
-export const createFestival = async (festival: Festival, token: string) => {
+export const createFestival = async (festival: Partial<Festival>, token: string) => {
    try {
       const newFestival: Festival = await local
          .post('', {json: {festival}, headers: {Authorization: `Bearer ${token}`}})
